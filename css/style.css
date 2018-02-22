@@ -1,0 +1,152 @@
+/* custom variables */
+/* mixins */
+/* properties */
+.section-card, .card {
+  background-color: #F2F2F2;
+  border: 0;
+  text-align: center;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+}
+
+/*    header    */
+header nav ul {
+  width: 100%;
+}
+header nav ul li {
+  padding: 0 20px;
+}
+
+/*    jumbotron    */
+.jumbotron {
+  background-image: url("../img/home.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  .jumbotron {
+    min-height: 900px;
+    /* media queries sont imbriquees dans le selecteur */
+  }
+}
+.jumbotron .btn-primary {
+  color: #707277;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 2px solid #A0A4AA;
+  padding: 10px 30px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.bg-faded {
+  background-color: white;
+}
+
+main section:nth-child(2) {
+  padding: 6em 0;
+}
+main section:nth-child(2) .card-block {
+  font-size: 0.8rem;
+  text-align: center;
+}
+main section:nth-child(2) .card-block img {
+  width: 60%;
+  height: auto;
+}
+main section:nth-child(2) .card-block a {
+  display: flex;
+  align-items: center;
+}
+main section:nth-child(2) .card-block a i {
+  font-size: 1.2em;
+  padding: 0 5px;
+}
+main :nth-child(3) figure {
+  padding: 0;
+  position: relative;
+}
+main :nth-child(3) figure figcaption {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main :nth-child(4) {
+  background-color: #A0A4AA;
+  padding: 8em 0 !important;
+  color: white;
+}
+
+/*  form  */
+form .btn-primary {
+  color: white;
+  background-color: #707277;
+  border-radius: 2px;
+  border: 2px solid #A0A4AA;
+  padding: 10px 30px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/*    footer    */
+footer {
+  font-size: 0.8rem;
+}
+footer div div a {
+  text-decoration: none;
+  padding: 10px;
+}
+footer div div a:hover {
+  text-decoration: none;
+}
+footer div div a:visited {
+  text-decoration: none;
+}
+footer div div a:active {
+  text-decoration: none;
+}
+footer div div a:link {
+  text-decoration: none;
+}
+footer :nth-child(2) span {
+  color: #FF0000;
+  display: flex;
+  justify-content: center;
+}
+footer :nth-child(2) span i {
+  font-size: 1.2em;
+  padding: 0 5px;
+}
+footer :nth-child(2) :nth-child(2) a {
+  color: #707277;
+}
+
+/*# sourceMappingURL=style.css.map */

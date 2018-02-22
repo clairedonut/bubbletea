@@ -1,0 +1,198 @@
+/* custom variables */
+
+$light-grey: #F2F2F2;
+$medium-grey: #A0A4AA;
+$dark-grey: #707277;
+$red: #FF0000;
+$transparent: rgba(0, 0, 0, 0);
+
+/* mixins */
+
+@mixin media-logo {
+  width: 60%;
+  height: auto;
+}
+
+@mixin small-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@mixin button($color, $background) { // button style - define parameters : color and background-color
+  color: $color;
+  background-color: $background;
+  border-radius: 2px;
+  border: 2px solid $medium-grey;
+  padding: 10px 30px;
+  @include small-text;
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+/* properties */
+
+.section-card, .card {
+  background-color: $light-grey;
+  border: 0;
+  text-align: center;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:link {
+    text-decoration: none;
+  }
+}
+
+/*    header    */
+
+header {
+  nav {
+    ul {
+      width: 100%;
+      li{
+        padding: 0 20px;
+      }
+    }
+  }
+}
+
+
+/*    jumbotron    */
+
+.jumbotron {
+  background-image: url("../img/home.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  margin-bottom: 0;
+  @include flex-center;
+
+
+  @media only screen and (min-width: 768px) {
+  min-height: 900px; /* media queries sont imbriquees dans le selecteur */
+}
+  .btn-primary {
+  @include button($dark-grey, $transparent);
+  }
+}
+
+.bg-faded {
+  background-color: white;
+}
+
+main {
+
+  section:nth-child(2) {
+    padding: 6em 0;
+
+    .card-block{
+      @include small-text;
+
+      img{
+        @include media-logo;
+      }
+      a{
+        display: flex;
+        align-items: center;
+        i {
+         font-size: 1.2em;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+  :nth-child(3){
+    figure {
+      padding: 0;
+      position: relative;
+
+      figcaption {
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 1.5em;
+        @include flex-center;
+      }
+    }
+  }
+
+  :nth-child(4) {
+    background-color: $medium-grey;
+    padding: 8em 0 !important;
+    color: white;
+  }
+}
+
+/*  form  */
+
+form {
+  .btn-primary {
+    @include button(white, $dark-grey);
+    &:hover{
+    }
+  }
+}
+
+/*    footer    */
+
+footer {
+  font-size: 0.8rem;
+  div {
+    div {
+      a {
+        text-decoration: none;
+        padding: 10px;
+        &:hover {
+          text-decoration: none;
+        }
+        &:visited {
+          text-decoration: none;
+        }
+        &:active {
+          text-decoration: none;
+        }
+        &:link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  :nth-child(2) {
+    span {
+      color: $red;
+      display: flex;
+      justify-content: center;
+      i {
+        font-size: 1.2em;
+        padding: 0 5px;
+      }
+    }
+    :nth-child(2){
+      a{
+        color: $dark-grey;
+      }
+    }
+  }
+
+}
