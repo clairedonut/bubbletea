@@ -1,30 +1,35 @@
 /* custom variables */
 /* mixins */
 /* properties */
+body a {
+  text-decoration: none;
+  color: none;
+}
+body a:hover {
+  text-decoration: none;
+  color: purple;
+}
+body a:active {
+  text-decoration: none;
+  color: red;
+}
+body a:visited {
+  text-decoration: none;
+}
+body a:link {
+  text-decoration: none;
+}
+body .container-fluid {
+  padding: 0;
+}
+body .container-fluid .row {
+  margin: 0;
+}
+
 .section-card, .card {
   background-color: #F2F2F2;
   border: 0;
   text-align: center;
-}
-
-.container-fluid {
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
-a:visited {
-  text-decoration: none;
-}
-a:active {
-  text-decoration: none;
-}
-a:link {
-  text-decoration: none;
 }
 
 /*    header    */
@@ -37,6 +42,7 @@ header nav ul li {
 
 /*    jumbotron    */
 .jumbotron {
+  /* background image */
   background-image: url("../img/home.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -48,8 +54,7 @@ header nav ul li {
 }
 @media only screen and (min-width: 768px) {
   .jumbotron {
-    min-height: 900px;
-    /* media queries sont imbriquees dans le selecteur */
+    min-height: 750px;
   }
 }
 .jumbotron .btn-primary {
@@ -66,6 +71,7 @@ header nav ul li {
   background-color: white;
 }
 
+/* media logos and recommendations area */
 main section:nth-child(2) {
   padding: 6em 0;
 }
@@ -85,6 +91,8 @@ main section:nth-child(2) .card-block a i {
   font-size: 1.2em;
   padding: 0 5px;
 }
+
+/* display product images area */
 main :nth-child(3) figure {
   padding: 0;
   position: relative;
@@ -99,14 +107,19 @@ main :nth-child(3) figure figcaption {
   flex-direction: column;
   justify-content: center;
 }
+
+/*  sign up form  */
 main :nth-child(4) {
   background-color: #A0A4AA;
   padding: 8em 0 !important;
   color: white;
 }
-
-/*  form  */
-form .btn-primary {
+@media screen and (max-width: 576px) {
+  main :nth-child(4) button {
+    margin: auto;
+  }
+}
+main :nth-child(4) .btn-primary {
   color: white;
   background-color: #707277;
   border-radius: 2px;
@@ -121,20 +134,7 @@ footer {
   font-size: 0.8rem;
 }
 footer div div a {
-  text-decoration: none;
   padding: 10px;
-}
-footer div div a:hover {
-  text-decoration: none;
-}
-footer div div a:visited {
-  text-decoration: none;
-}
-footer div div a:active {
-  text-decoration: none;
-}
-footer div div a:link {
-  text-decoration: none;
 }
 footer :nth-child(2) span {
   color: #FF0000;

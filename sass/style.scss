@@ -6,16 +6,31 @@ $dark-grey: #707277;
 $red: #FF0000;
 $transparent: rgba(0, 0, 0, 0);
 
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+
+
 /* mixins */
 
-@mixin media-logo {
-  width: 60%;
-  height: auto;
-}
-
-@mixin small-text {
-  font-size: 0.8rem;
-  text-align: center;
+@mixin link($hover, $active) { // define hyperlink properties
+  a {
+    text-decoration: none;
+    color: none;
+    &:hover {
+      text-decoration: none;
+      color: $hover;
+    }
+    &:active {
+      text-decoration: none;
+      color: $active;
+    }
+    &:visited {
+      text-decoration: none;
+    }
+    &:link {
+      text-decoration: none;
+    }
+  }
 }
 
 @mixin button($color, $background) { // button style - define parameters : color and background-color
@@ -27,15 +42,43 @@ $transparent: rgba(0, 0, 0, 0);
   @include small-text;
 }
 
-@mixin flex-center {
+@mixin flex-v-center { // flexbox
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+@mixin background($url, $size, $repeat) { /* background image */
+  background-image: url($url);
+  background-size: $size;
+  background-repeat: $repeat;
+}
+
+@mixin media-logo {
+  width: 60%;
+  height: auto;
+}
+
+@mixin small-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+
+
 
 
 /* properties */
+
+body {
+  @include link(purple, red) ;
+  .container-fluid {
+    padding: 0;
+    .row {
+      margin: 0;
+    }
+  }
+}
 
 .section-card, .card {
   background-color: $light-grey;
@@ -43,25 +86,6 @@ $transparent: rgba(0, 0, 0, 0);
   text-align: center;
 }
 
-.container-fluid {
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
-  }
-  &:visited {
-    text-decoration: none;
-  }
-  &:active {
-    text-decoration: none;
-  }
-  &:link {
-    text-decoration: none;
-  }
-}
 
 /*    header    */
 
@@ -80,17 +104,15 @@ header {
 /*    jumbotron    */
 
 .jumbotron {
-  background-image: url("../img/home.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  @include background("../img/home.jpg", cover, no-repeat);
   background-position: top left;
   margin-bottom: 0;
-  @include flex-center;
-
+  @include flex-v-center;
 
   @media only screen and (min-width: 768px) {
-  min-height: 900px; /* media queries sont imbriquees dans le selecteur */
-}
+  min-height: 750px;
+  }
+
   .btn-primary {
   @include button($dark-grey, $transparent);
   }
@@ -100,9 +122,11 @@ header {
   background-color: white;
 }
 
-main {
 
-  section:nth-child(2) {
+
+/* media logos and recommendations area */
+
+main section:nth-child(2) {
     padding: 6em 0;
 
     .card-block{
@@ -121,7 +145,10 @@ main {
       }
     }
   }
-  :nth-child(3){
+
+/* display product images area */
+
+main  :nth-child(3){
     figure {
       padding: 0;
       position: relative;
@@ -132,27 +159,27 @@ main {
         bottom: 0;
         width: 100%;
         padding: 1.5em;
-        @include flex-center;
+        @include flex-v-center;
       }
     }
   }
 
-  :nth-child(4) {
+/*  sign up form  */
+
+main  :nth-child(4) {
     background-color: $medium-grey;
     padding: 8em 0 !important;
     color: white;
-  }
-}
-
-/*  form  */
-
-form {
-  .btn-primary {
-    @include button(white, $dark-grey);
-    &:hover{
+    button {
+      @media screen and (max-width: $breakpoint-mobile) {
+        margin: auto;
+      }
+    }
+    .btn-primary {
+      @include button(white, $dark-grey);
     }
   }
-}
+
 
 /*    footer    */
 
@@ -161,20 +188,7 @@ footer {
   div {
     div {
       a {
-        text-decoration: none;
         padding: 10px;
-        &:hover {
-          text-decoration: none;
-        }
-        &:visited {
-          text-decoration: none;
-        }
-        &:active {
-          text-decoration: none;
-        }
-        &:link {
-          text-decoration: none;
-        }
       }
     }
   }
