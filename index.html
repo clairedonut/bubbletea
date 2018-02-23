@@ -6,7 +6,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="icon" href="favicon.png" />
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -21,36 +21,45 @@
 
       <header class="container-fluid">
 
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded  d-flex justify-content-around">
+        <nav class="navbar navbar-toggleable-md navbar-light  d-flex justify-content-around">
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="col-2">
-            <a class="navbar-brand" href="#">Bubble Phone</a>
+          <div class="col-3 d-flex align-items-top">
+            <img src="img/logo.png" alt="">
+            <a class="navbar-brand" href="#">
+                Kawaii Icecream
+            </a>
           </div>
 
-          <div class="col-8 collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="col-7 collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto d-flex justify-content-center">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Bubble Phone</a>
+                <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#">Store</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Support</a>
+                <a class="nav-link" href="#">Flavours</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Community</a>
+                <a class="nav-link" href="#">Contact</a>
               </li>
             </ul>
           </div>
 
-          <div class="hidden-md-down col-2 d-flex justify-content-around">
+          <!-- <div class="hidden-md-down col-2 d-flex justify-content-around">
             <i class="material-icons">account_circle</i>
             <i class="material-icons">shopping_cart</i>
             <i class="material-icons">flag</i>
+          </div> -->
+
+          <div class="hidden-md-down col-2  d-flex justify-content-around">
+            <a href="#" class="socicon-instagram"></a>
+            <a href="#" class="socicon-twitter"></a>
+            <a href="#" class="socicon-facebook"></a>
           </div>
 
         </nav>
@@ -64,12 +73,14 @@
         <!-- part 1 - jumbotron -->
 
           <div class="jumbotron">
-            <h1 class="display-3">Bubble Phone</h1>
-            <p class="lead">The revolutionary phone is now available</p>
-            <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
-            <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
+            <div class="banner">
+                <h1 class="display-3">Rainbow Unicone</h1>
+                <p class="lead">"The new flavour this season"</p>
+                <p class="lead">
+                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
+            </div>
+
           </div>
 
 
@@ -79,9 +90,9 @@
             <div class="card">
               <div class="card-block">
                 <figure class="card-title">
-                  <img src="img/media-icon1.png" alt="logo">
+                  <img src="img/media1.png" alt="logo">
                 </figure>
-                <p class="card-text">"A true flagship phone with style and power"</p>
+                <p class="card-text">"Worth the wait and worth the hype"</p>
                 <a href="#" class="d-flex justify-content-center align-baseline"><i class="material-icons">launch</i>Learn more</a>
               </div>
             </div>
@@ -90,9 +101,11 @@
             <div class="card">
               <div class="card-block">
                 <figure class="card-title">
-                  <img src="img/media-icon2.png" alt="logo">
+                  <img src="img/media2.png" alt="logo">
                 </figure>
-                <p class="card-text">"The Bubble Phone is the rare kind of phone I can recommend"</p>
+                <p class="card-text">
+                    "For the sweetest of all sweetie pies"
+                </p>
                 <a href="#" class="d-flex justify-content-center align-baseline"><i class="material-icons">launch</i>Learn more</a>
               </div>
             </div>
@@ -101,9 +114,11 @@
             <div class="card">
               <div class="card-block">
                 <figure class="card-title">
-                  <img src="img/media-icon3.png" alt="logo">
+                  <img src="img/media3.png" alt="logo">
                 </figure>
-                <p class="card-text">The Bubble Phone is the perfect phone</p>
+                <p class="card-text">
+                    "I will make a tantrum if I can't get another one."
+                </p>
                 <a href="#" class="d-flex justify-content-center align-baseline"><i class="material-icons">launch</i>Learn more</a>
               </div>
             </div>
@@ -113,15 +128,15 @@
         <!-- part 3 - section 2 imgs -->
         <section class="row">
           <figure class="col-12 col-md-4 m-0">
-            <img class="img-fluid" src="img/img1.png" alt="iphone">
+            <img class="img-fluid" src="img/insta1.jpg" alt="iphone">
           </figure>
           <figure class="col-12 col-md-4 m-0">
-            <img class="img-fluid" src="img/img2.png" alt="iphone">
+            <img class="img-fluid" src="img/insta2.jpg" alt="iphone">
           </figure>
           <figure class="col-12 col-md-4 m-0">
-            <img class="img-fluid" src="img/img3.png" alt="iphone">
+            <img class="img-fluid" src="img/insta3.jpg" alt="iphone">
             <figcaption class="text-white">
-              Power bundle
+              Collect all our power flavours!
               <a href="#">Learn more</a>
             </figcaption>
           </figure>
@@ -130,7 +145,7 @@
         <!-- part 4 - section 3 newsletter sign up form -->
          <section class="row">
            <div class="col-12 d-flex flex-column align-items-center">
-             <h2 class="text-center">Always be the first to know!</h2>
+             <h2 class="text-center">Stay in the Kawaii Loop!</h2>
              <p>Sign up to our newsletter.</p>
              <form class="form-inline">
                <label class="sr-only" for="inlineFormInput">Email address</label>
@@ -148,19 +163,18 @@
       <footer class="container-fluid">
         <div class="row p-2 d-flex justify-content-between">
           <div class="offset-md-1 col-md-5 d-flex justify-content-start">
-            <a href="#" class="text-muted">Phones</a>
-            <a href="#" class="text-muted">Careers</a>
-            <a href="#" class="text-muted">Press</a>
-            <a href="#" class="text-muted">Privacy & Legal</a>
+            <a href="#">About Kawaii Icecream</a>
+            <a href="#">Reviews</a>
+            <a href="#">Privacy & Legal</a>
           </div>
-          <div class="hidden-sm-down d-flex">
+          <div class="hidden-sm-down d-flex ">
             <a href="#" class="text-muted">
               <span class="d-flex align-items-center">
                 <i class="material-icons">phone</i>
-                Support: 03 45 34 23 12
+                03 45 34 23 12
               </span>
             </a>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center py-0">
               <a href="#" class="socicon-instagram"></a>
               <a href="#" class="socicon-twitter"></a>
               <a href="#" class="socicon-facebook"></a>

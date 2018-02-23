@@ -1,3 +1,5 @@
+/* imported fonts */
+@import url("https://fonts.googleapis.com/css?family=Sacramento");
 /* custom variables */
 /* mixins */
 /* properties */
@@ -7,17 +9,20 @@ body a {
 }
 body a:hover {
   text-decoration: none;
-  color: purple;
+  color: #25A18E;
 }
 body a:active {
   text-decoration: none;
-  color: red;
+  color: #9FFFCB;
 }
 body a:visited {
   text-decoration: none;
 }
 body a:link {
   text-decoration: none;
+}
+body ::selection {
+  background: #DB93B0;
 }
 body .container-fluid {
   padding: 0;
@@ -27,12 +32,27 @@ body .container-fluid .row {
 }
 
 .section-card, .card {
-  background-color: #F2F2F2;
+  background-color: #DBB1BC;
   border: 0;
   text-align: center;
 }
 
 /*    header    */
+header nav {
+  background-color: #F2F2F2;
+}
+header nav img {
+  width: 32px;
+  height: 32px;
+}
+header nav .navbar-brand {
+  font: 2em "Sacramento", cursive;
+  padding: 0;
+  margin: 0;
+}
+header nav a {
+  color: #FF8484;
+}
 header nav ul {
   width: 100%;
 }
@@ -43,22 +63,34 @@ header nav ul li {
 /*    jumbotron    */
 .jumbotron {
   /* background image */
-  background-image: url("../img/home.jpg");
+  background-image: url("../img/banner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top left;
+  background-position: center center;
   margin-bottom: 0;
+  padding: 0;
+  color: white;
+}
+.jumbotron .banner {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+@media only screen and (max-width: 768px) {
+  .jumbotron .banner h1, .jumbotron .banner p {
+    text-align: center;
+  }
+}
 @media only screen and (min-width: 768px) {
-  .jumbotron {
-    min-height: 750px;
+  .jumbotron .banner {
+    max-height: 50vw;
+    padding-left: 2em;
   }
 }
 .jumbotron .btn-primary {
-  color: #707277;
+  color: #84C0C6;
   background-color: transparent;
   border-radius: 2px;
   border: 2px solid #A0A4AA;
@@ -80,8 +112,7 @@ main section:nth-child(2) .card-block {
   text-align: center;
 }
 main section:nth-child(2) .card-block img {
-  width: 60%;
-  height: auto;
+  max-width: 100px;
 }
 main section:nth-child(2) .card-block a {
   display: flex;
@@ -102,7 +133,7 @@ main :nth-child(3) figure figcaption {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 1.5em;
+  padding: 0.7em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,7 +141,7 @@ main :nth-child(3) figure figcaption {
 
 /*  sign up form  */
 main :nth-child(4) {
-  background-color: #A0A4AA;
+  background-color: #84C0C6;
   padding: 8em 0 !important;
   color: white;
 }
@@ -133,20 +164,24 @@ main :nth-child(4) .btn-primary {
 footer {
   font-size: 0.8rem;
 }
-footer div div a {
+footer div {
   padding: 10px;
 }
+footer div div a {
+  color: #004E64;
+  padding-right: 20px;
+}
+footer :nth-child(2) a {
+  color: #004E64;
+}
 footer :nth-child(2) span {
-  color: #FF0000;
+  color: #004E64;
   display: flex;
   justify-content: center;
 }
 footer :nth-child(2) span i {
   font-size: 1.2em;
-  padding: 0 5px;
-}
-footer :nth-child(2) :nth-child(2) a {
-  color: #707277;
+  padding-right: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

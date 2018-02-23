@@ -1,9 +1,22 @@
+/* imported fonts */
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
+
+
 /* custom variables */
 
 $light-grey: #F2F2F2;
 $medium-grey: #A0A4AA;
 $dark-grey: #707277;
 $red: #FF0000;
+
+$nav: #FF8484;
+$navbar: #F2F2F2;
+$card: #DBB1BC;
+$form: #84C0C6;
+$footer: #004E64;
+
+$brand: 'Sacramento', cursive;
+
 $transparent: rgba(0, 0, 0, 0);
 
 $breakpoint-mobile: 576px;
@@ -55,8 +68,7 @@ $breakpoint-tablet: 768px;
 }
 
 @mixin media-logo {
-  width: 60%;
-  height: auto;
+  max-width: 100px;
 }
 
 @mixin small-text {
@@ -71,7 +83,10 @@ $breakpoint-tablet: 768px;
 /* properties */
 
 body {
-  @include link(purple, red) ;
+  @include link(#25A18E, #9FFFCB) ;
+  ::selection {
+    background: #DB93B0;
+  }
   .container-fluid {
     padding: 0;
     .row {
@@ -81,7 +96,8 @@ body {
 }
 
 .section-card, .card {
-  background-color: $light-grey;
+  // background-color: $light-grey;
+  background-color: $card;
   border: 0;
   text-align: center;
 }
@@ -91,6 +107,19 @@ body {
 
 header {
   nav {
+    background-color: $navbar;
+    img{
+      width: 32px;
+      height: 32px;
+    }
+    .navbar-brand {
+      font: 2em $brand;
+      padding: 0;
+      margin: 0;
+    }
+    a {
+      color: $nav;
+    }
     ul {
       width: 100%;
       li{
@@ -104,17 +133,34 @@ header {
 /*    jumbotron    */
 
 .jumbotron {
-  @include background("../img/home.jpg", cover, no-repeat);
-  background-position: top left;
+  @include background("../img/banner.jpg", cover, no-repeat);
+  background-position: center center;
   margin-bottom: 0;
-  @include flex-v-center;
+  padding: 0;
+  color: white;
 
-  @media only screen and (min-width: 768px) {
-  min-height: 750px;
+
+  .banner {
+    background-color: rgba(0,0,0,0.4);
+    height: 80vw;
+    @include flex-v-center;
+
+    @media only screen and (max-width: $breakpoint-tablet) {
+      h1, p {
+        text-align: center;
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+    max-height: 50vw;
+    padding-left: 2em;
+
+    }
+
   }
 
   .btn-primary {
-  @include button($dark-grey, $transparent);
+  @include button(#84C0C6, $transparent);
   }
 }
 
@@ -152,13 +198,12 @@ main  :nth-child(3){
     figure {
       padding: 0;
       position: relative;
-
       figcaption {
         background-color: rgba(0, 0, 0, 0.8);
         position: absolute;
         bottom: 0;
         width: 100%;
-        padding: 1.5em;
+        padding: 0.7em;
         @include flex-v-center;
       }
     }
@@ -167,7 +212,8 @@ main  :nth-child(3){
 /*  sign up form  */
 
 main  :nth-child(4) {
-    background-color: $medium-grey;
+    // background-color: $medium-grey;
+    background-color: $form;
     padding: 8em 0 !important;
     color: white;
     button {
@@ -186,25 +232,25 @@ main  :nth-child(4) {
 footer {
   font-size: 0.8rem;
   div {
+    padding: 10px;
     div {
       a {
-        padding: 10px;
+        color: $footer;
+        padding-right: 20px;
       }
     }
   }
   :nth-child(2) {
+    a{
+      color: $footer;
+    }
     span {
-      color: $red;
+      color: $footer;
       display: flex;
       justify-content: center;
       i {
         font-size: 1.2em;
-        padding: 0 5px;
-      }
-    }
-    :nth-child(2){
-      a{
-        color: $dark-grey;
+        padding-right: 5px;
       }
     }
   }
