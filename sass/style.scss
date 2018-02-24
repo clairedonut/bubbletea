@@ -10,7 +10,7 @@ $dark-grey: #707277;
 $red: #FF0000;
 
 $nav: #FF8484;
-$navbar: #F2F2F2;
+$navbar: #fff;
 $card: #DBB1BC;
 $form: #84C0C6;
 $footer: #004E64;
@@ -198,6 +198,10 @@ main  :nth-child(3){
     figure {
       padding: 0;
       position: relative;
+
+      // zoom effect in img
+      overflow: hidden;
+
       figcaption {
         background-color: rgba(0, 0, 0, 0.8);
         position: absolute;
@@ -208,6 +212,9 @@ main  :nth-child(3){
       }
     }
   }
+
+
+
 
 /*  sign up form  */
 
@@ -244,6 +251,10 @@ footer {
     a{
       color: $footer;
     }
+    .brand {
+      font: 2em $brand;
+
+    }
     span {
       color: $footer;
       display: flex;
@@ -256,3 +267,19 @@ footer {
   }
 
 }
+
+
+
+
+// .zoom {
+//     -webkit-transition: all .2s ease-in-out;
+//     -moz-transition: all .2s ease-in-out;
+//     -o-transition: all .2s ease-in-out;
+//     -ms-transition: all .2s ease-in-out;
+// }
+// .transition {
+//     -webkit-transform: scale(1.1);
+//     -moz-transform: scale(1.1);
+//     -o-transform: scale(1.1);
+//     transform: scale(1.1);
+// }

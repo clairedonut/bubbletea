@@ -39,7 +39,7 @@ body .container-fluid .row {
 
 /*    header    */
 header nav {
-  background-color: #F2F2F2;
+  background-color: #fff;
 }
 header nav img {
   width: 32px;
@@ -127,6 +127,7 @@ main section:nth-child(2) .card-block a i {
 main :nth-child(3) figure {
   padding: 0;
   position: relative;
+  overflow: hidden;
 }
 main :nth-child(3) figure figcaption {
   background-color: rgba(0, 0, 0, 0.8);
@@ -173,6 +174,9 @@ footer div div a {
 }
 footer :nth-child(2) a {
   color: #004E64;
+}
+footer :nth-child(2) .brand {
+  font: 2em "Sacramento", cursive;
 }
 footer :nth-child(2) span {
   color: #004E64;
