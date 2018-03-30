@@ -1,64 +1,41 @@
-/* imported fonts */
+// imported fonts
 @import url('https://fonts.googleapis.com/css?family=Sacramento');
+@import url('https://fonts.googleapis.com/css?family=Poppins|Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
-
-/* custom variables */
-
-$light-grey: #F2F2F2;
-$medium-grey: #A0A4AA;
-$dark-grey: #707277;
-$red: #FF0000;
+// custom variables
 
 $nav: #FF8484;
-$navbar: #fff;
+$nav-hover: #25A18E;
+$nav-font: 'Poppins', sans-serif;
+$brand-font: 'Sacramento', cursive;
 $card: #DBB1BC;
+$section-font: 'Quicksand', sans-serif;
+$section: #DBB1BC;
 $form: #84C0C6;
-$footer: #004E64;
+$footer: #25A18E;
 
-$brand: 'Sacramento', cursive;
+// breakpoints
 
-$transparent: rgba(0, 0, 0, 0);
+$min-break-small: "only screen and (min-width : 576px)";
+$min-break-medium: "only screen and (min-width : 768px)";
+$min-break-large: "only screen and (min-width : 992px)";
+$min-break-xlarge: "only screen and (min-width : 1200px)";
 
-$breakpoint-mobile: 576px;
-$breakpoint-tablet: 768px;
+// mixins
 
-
-/* mixins */
-
-@mixin link($hover, $active) { // define hyperlink properties
-  a {
-    text-decoration: none;
-    color: none;
-    &:hover {
-      text-decoration: none;
-      color: $hover;
-    }
-    &:active {
-      text-decoration: none;
-      color: $active;
-    }
-    &:visited {
-      text-decoration: none;
-    }
-    &:link {
-      text-decoration: none;
-    }
-  }
+@mixin flex($horizontal, $vertical) { // flexbox
+  display: flex;
+  flex-direction: row;
+  justify-content: $horizontal;
+  align-items: $vertical;
 }
 
-@mixin button($color, $background) { // button style - define parameters : color and background-color
-  color: $color;
-  background-color: $background;
-  border-radius: 2px;
-  border: 2px solid $medium-grey;
-  padding: 10px 30px;
-  @include small-text;
-}
-
-@mixin flex-v-center { // flexbox
+@mixin flex-v($horizontal, $vertical) { // flexbox
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: $horizontal;
+  justify-content: $vertical;
 }
 
 @mixin background($url, $size, $repeat) { /* background image */
@@ -67,23 +44,13 @@ $breakpoint-tablet: 768px;
   background-repeat: $repeat;
 }
 
-@mixin media-logo {
-  max-width: 100px;
-}
+/*
 
-@mixin small-text {
-  font-size: 0.8rem;
-  text-align: center;
-}
+    properties applicable on all areas
 
-
-
-
-
-/* properties */
+*/
 
 body {
-  @include link(#25A18E, #9FFFCB) ;
   ::selection {
     background: #DB93B0;
   }
@@ -95,191 +62,335 @@ body {
   }
 }
 
-.section-card, .card {
-  // background-color: $light-grey;
-  background-color: $card;
-  border: 0;
-  text-align: center;
+/*
+--------------------    header area    --------------------
+*/
+
+.sticky {
+  position: fixed !important;
+  top: 0;
+  z-index: 5;
+  background: rgba(255, 255, 255,0.9) ;
+  width: 100%;
 }
-
-
-/*    header    */
 
 header {
   nav {
-    background-color: $navbar;
-    img{
-      width: 32px;
-      height: 32px;
-    }
+
+    /* -- nav branding -- */
     .navbar-brand {
-      font: 2em $brand;
+      font: 2em $brand-font;
       padding: 0;
       margin: 0;
+      color: #000;
+      &:hover {
+        color: $nav;
+        border-bottom: 0;
+        // text-shadow: 2px -1px 0px $nav-hover;
+      }
+      img{
+        // padding-bottom: 10px;
+        width: 50px;
+        height: 50px;
+      }
     }
-    a {
-      color: $nav;
-    }
+
+    /* -- nav list menu -- */
     ul {
       width: 100%;
       li{
         padding: 0 20px;
+        border-bottom: 2px solid white;
+        color: #484848;
+        &:hover {
+          color: $nav;
+          border-bottom: 2px solid $nav-hover;
+        }
+      }
+      .nav-link, .nav-item {
+        font-family: $nav-font;
+        color: #484848;
+      }
+    }
+
+    /* -- nav list menu -- */
+    .socicon {
+      a {
+        color: $nav;
+        &:hover {
+          color: $nav-hover;
+          text-decoration: none;
+        }
       }
     }
   }
 }
 
+/*
+--------------------    main area    --------------------
+*/
 
-/*    jumbotron    */
+
+/* ----------    jumbotron    ----------  */
 
 .jumbotron {
+
+  // banner image
   @include background("../img/banner.jpg", cover, no-repeat);
   background-position: center center;
   margin-bottom: 0;
   padding: 0;
   color: white;
 
-
+  // text area
   .banner {
-    background-color: rgba(0,0,0,0.4);
+    @include flex-v(center,space-around);
+    background-color: rgba(0,0,0,0.1);
     height: 80vw;
-    @include flex-v-center;
+    @media #{$min-break-medium} {
+    max-height: 50vw;
+    @include flex-v(center,center);
+    }
 
-    @media only screen and (max-width: $breakpoint-tablet) {
-      h1, p {
-        text-align: center;
+    h1, p {
+      text-shadow: 1px 1px 1px rgba(0,0,0,1);
+    }
+    h1 {
+      font-size: 5rem;
+      line-height: 1em !important;
+      text-align: center;
+      padding: 0 0.5em;
+
+      font-family: 'Permanent Marker', cursive;
+      // color: #D4C1EC;
+      color: #736CED;
+
+      @media #{$min-break-medium} {
+        font-size: 6rem;
+        padding-bottom: 0.8em;
       }
     }
-
-    @media only screen and (min-width: $breakpoint-tablet) {
-    max-height: 50vw;
-    padding-left: 2em;
-
+    p {
+      display: none;
+      font-size: 2.8em;
+      @media #{$min-break-medium} {
+        display: block;
+      }
     }
+  }
 
+  // call to action button
+  .btn-primary {
+    color: #f4f4f4;
+    background: #1abc9c;
+    padding: 10px 25px;
+    width: 80% !important;
+    font-size: 0.95em;
+    margin-left: 5px;
+    margin-top: 50px;
+    border: 0;
+    border-bottom: 2px solid #3a9a95;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    &:hover {
+      background: #008E87;
+    }
+    @media #{$min-break-medium} {
+      width: 300px !important;
+    }
+  }
+} // end jumbotron
+
+
+/* ----------    area with testimonies and ratings    ----------  */
+
+#testimonies {
+  @include flex(space-around,center);
+  background: $section;
+  padding: 5em 0;
+
+  .testi{
+    @include flex-v(center,center);
+    padding: 3em 0;
+    font-family: $section-font;
+    color: #fff;
+
+    p{
+      text-align: center;
+      padding: 2em 1em;
+      @media #{$min-break-large} {
+        padding: auto 3em;
+      }
+    }
+  }
+
+}
+
+/* ----------    area with instagram feed    ----------  */
+
+#instagram-area{
+  background: #6FC3C9;
+  &:hover {
+    background: linear-gradient(#6FC3C9, #FF8484);
+  }
+}
+
+
+.insta {
+    @include flex(center, center);
+    font-family: $section-font;
+    color: #fff;
+
+  h2 {
+    font-size: 2.5em;
+    @media #{$min-break-medium} {
+      font-size: 4em;
+    }
+    padding: 1em 0.5em;
+  }
+
+}
+
+/* instagram feed container */
+.instagram-lite {
+  padding : 0 ;
+  @media #{$min-break-medium} {
+    margin: 1em;
+  }
+
+  a {
+    overflow: hidden !important;
+    img {
+      width: 50%;
+      &:hover {
+        transform: scale(1.05);
+        -webkit-transition: all .3s ease-in-out;
+      }
+      @media #{$min-break-medium} {
+        width: calc(100% / 4);
+        padding: 3px;
+      }
+      @media #{$min-break-large} {
+        width: calc(100% / 5);
+      }
+    }
+  }
+} // END .instagram-lite
+
+
+/* ----------    area with sign up form    ----------  */
+
+
+// force overwrite bootstrap properties
+label {
+  margin-bottom: 0 !important;
+}
+
+input, textarea {
+  padding: 20px !important;
+  border-radius: 4px;
+  color: #464a4c;
+  margin: 5px auto;
+
+  @media #{$min-break-medium} {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 80%;
+
+    padding: 10px 30px !important;
+
+
+  }
+}
+
+
+#form {
+  @include flex-v(center,center);
+  background-color: $form;
+  padding: 6em 0.5em;
+  color: #fff;
+  font-family: $section-font;
+  .form-area {
+    @include flex-v(center, center) ;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2.5em;
+    line-height: 1.5em;
+    margin-top: 2em;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+
+  /* form input fields  */
+  form {
+  padding: 0 1em;
+  @include flex-v(space-around, center);
+  @media #{$min-break-medium} {
+    width: 50%;
+    @include flex(center, center);
+  }
+  @media #{$min-break-large} {
+    width: 40%;
   }
 
   .btn-primary {
-  @include button(#84C0C6, $transparent);
+    color: #f4f4f4;
+    background: #1abc9c;
+    padding: 10px 25px;
+    font-size: 0.95em;
+    margin: 20px 0;
+    border: 0;
+    border-bottom: 2px solid #3a9a95;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    &:hover {
+      background: #008E87;
+    }
+  }
+
+  } // END form
+}
+
+// toast alert
+
+.toast {
+  position: fixed;
+  top: 15%;
+  right: 5%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: lightgreen;
+  @include flex(center,center);
+  border-radius: 4px;
+  div {
+    @include flex-v(flex-start,center);
   }
 }
 
-.bg-faded {
-  background-color: white;
-}
 
+  /*
+  --------------------    footer area    --------------------
+  */
 
-
-/* media logos and recommendations area */
-
-main section:nth-child(2) {
-    padding: 6em 0;
-
-    .card-block{
-      @include small-text;
-
-      img{
-        @include media-logo;
-      }
-      a{
-        display: flex;
-        align-items: center;
-        i {
-         font-size: 1.2em;
-          padding: 0 5px;
-        }
-      }
-    }
-  }
-
-/* display product images area */
-
-main  :nth-child(3){
-    figure {
-      padding: 0;
-      position: relative;
-
-      // zoom effect in img
-      overflow: hidden;
-
-      figcaption {
-        background-color: rgba(0, 0, 0, 0.8);
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        padding: 0.7em;
-        @include flex-v-center;
-      }
-    }
-  }
-
-
-
-
-/*  sign up form  */
-
-main  :nth-child(4) {
-    // background-color: $medium-grey;
-    background-color: $form;
-    padding: 8em 0 !important;
-    color: white;
-    button {
-      @media screen and (max-width: $breakpoint-mobile) {
-        margin: auto;
-      }
-    }
-    .btn-primary {
-      @include button(white, $dark-grey);
-    }
-  }
-
-
-/*    footer    */
 
 footer {
   font-size: 0.8rem;
-  div {
-    padding: 10px;
-    div {
-      a {
-        color: $footer;
-        padding-right: 20px;
-      }
-    }
-  }
-  :nth-child(2) {
-    a{
-      color: $footer;
-    }
-    .brand {
-      font: 2em $brand;
+  background: #D4C1EC;
 
-    }
-    span {
-      color: $footer;
-      display: flex;
-      justify-content: center;
-      i {
-        font-size: 1.2em;
-        padding-right: 5px;
-      }
-    }
+  // branding footer
+  .brand {
+    font: 2em $brand-font;
   }
 
+  a {
+    padding-right: 20px;
+    color: #fff;
+    &:hover {
+      color: $nav;
+      text-decoration: none;
+    }
+  }
 }
-
-
-
-
-// .zoom {
-//     -webkit-transition: all .2s ease-in-out;
-//     -moz-transition: all .2s ease-in-out;
-//     -o-transition: all .2s ease-in-out;
-//     -ms-transition: all .2s ease-in-out;
-// }
-// .transition {
-//     -webkit-transform: scale(1.1);
-//     -moz-transform: scale(1.1);
-//     -o-transform: scale(1.1);
-//     transform: scale(1.1);
-// }
