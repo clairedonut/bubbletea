@@ -1,26 +1,11 @@
-/* imported fonts */
 @import url("https://fonts.googleapis.com/css?family=Sacramento");
-/* custom variables */
-/* mixins */
-/* properties */
-body a {
-  text-decoration: none;
-  color: none;
-}
-body a:hover {
-  text-decoration: none;
-  color: #25A18E;
-}
-body a:active {
-  text-decoration: none;
-  color: #9FFFCB;
-}
-body a:visited {
-  text-decoration: none;
-}
-body a:link {
-  text-decoration: none;
-}
+@import url("https://fonts.googleapis.com/css?family=Poppins|Quicksand");
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+/*
+
+    properties applicable on all areas
+
+*/
 body ::selection {
   background: #DB93B0;
 }
@@ -31,36 +16,64 @@ body .container-fluid .row {
   margin: 0;
 }
 
-.section-card, .card {
-  background-color: #DBB1BC;
-  border: 0;
-  text-align: center;
+/*
+--------------------    header area    --------------------
+*/
+.sticky {
+  position: fixed !important;
+  top: 0;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
 }
 
-/*    header    */
 header nav {
-  background-color: #fff;
-}
-header nav img {
-  width: 32px;
-  height: 32px;
+  /* -- nav branding -- */
+  /* -- nav list menu -- */
+  /* -- nav list menu -- */
 }
 header nav .navbar-brand {
   font: 2em "Sacramento", cursive;
   padding: 0;
   margin: 0;
+  color: #000;
 }
-header nav a {
+header nav .navbar-brand:hover {
   color: #FF8484;
+  border-bottom: 0;
+}
+header nav .navbar-brand img {
+  width: 50px;
+  height: 50px;
 }
 header nav ul {
   width: 100%;
 }
 header nav ul li {
   padding: 0 20px;
+  border-bottom: 2px solid white;
+  color: #484848;
+}
+header nav ul li:hover {
+  color: #FF8484;
+  border-bottom: 2px solid #25A18E;
+}
+header nav ul .nav-link, header nav ul .nav-item {
+  font-family: "Poppins", sans-serif;
+  color: #484848;
+}
+header nav .socicon a {
+  color: #FF8484;
+}
+header nav .socicon a:hover {
+  color: #25A18E;
+  text-decoration: none;
 }
 
-/*    jumbotron    */
+/*
+--------------------    main area    --------------------
+*/
+/* ----------    jumbotron    ----------  */
 .jumbotron {
   /* background image */
   background-image: url("../img/banner.jpg");
@@ -72,120 +85,275 @@ header nav ul li {
   color: white;
 }
 .jumbotron .banner {
-  background-color: rgba(0, 0, 0, 0.4);
-  height: 80vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-@media only screen and (max-width: 768px) {
-  .jumbotron .banner h1, .jumbotron .banner p {
-    text-align: center;
-  }
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 80vw;
 }
 @media only screen and (min-width: 768px) {
   .jumbotron .banner {
     max-height: 50vw;
-    padding-left: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.jumbotron .banner h1, .jumbotron .banner p {
+  text-shadow: 1px 1px 1px black;
+}
+.jumbotron .banner h1 {
+  font-size: 5rem;
+  line-height: 1em !important;
+  text-align: center;
+  padding: 0 0.5em;
+  font-family: 'Permanent Marker', cursive;
+  color: #736CED;
+}
+@media only screen and (min-width: 768px) {
+  .jumbotron .banner h1 {
+    font-size: 6rem;
+    padding-bottom: 0.8em;
+  }
+}
+.jumbotron .banner p {
+  display: none;
+  font-size: 2.8em;
+}
+@media only screen and (min-width: 768px) {
+  .jumbotron .banner p {
+    display: block;
   }
 }
 .jumbotron .btn-primary {
-  color: #84C0C6;
-  background-color: transparent;
-  border-radius: 2px;
-  border: 2px solid #A0A4AA;
-  padding: 10px 30px;
-  font-size: 0.8rem;
-  text-align: center;
+  color: #f4f4f4;
+  background: #1abc9c;
+  padding: 10px 25px;
+  width: 80% !important;
+  font-size: 0.95em;
+  margin-left: 5px;
+  margin-top: 50px;
+  border: 0;
+  border-bottom: 2px solid #3a9a95;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }
-
-.bg-faded {
-  background-color: white;
+.jumbotron .btn-primary:hover {
+  background: #008E87;
 }
-
-/* media logos and recommendations area */
-main section:nth-child(2) {
-  padding: 6em 0;
-}
-main section:nth-child(2) .card-block {
-  font-size: 0.8rem;
-  text-align: center;
-}
-main section:nth-child(2) .card-block img {
-  max-width: 100px;
-}
-main section:nth-child(2) .card-block a {
-  display: flex;
-  align-items: center;
-}
-main section:nth-child(2) .card-block a i {
-  font-size: 1.2em;
-  padding: 0 5px;
-}
-
-/* display product images area */
-main :nth-child(3) figure {
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-}
-main :nth-child(3) figure figcaption {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 0.7em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/*  sign up form  */
-main :nth-child(4) {
-  background-color: #84C0C6;
-  padding: 8em 0 !important;
-  color: white;
-}
-@media screen and (max-width: 576px) {
-  main :nth-child(4) button {
-    margin: auto;
+@media only screen and (min-width: 768px) {
+  .jumbotron .btn-primary {
+    width: 300px !important;
   }
 }
-main :nth-child(4) .btn-primary {
-  color: white;
-  background-color: #707277;
-  border-radius: 2px;
-  border: 2px solid #A0A4AA;
-  padding: 10px 30px;
-  font-size: 0.8rem;
+
+/* ----------    area with testimonies and ratings    ----------  */
+#testimonies {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: #DBB1BC;
+  padding: 5em 0;
+}
+#testimonies .testi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3em 0;
+  font-family: "Quicksand", sans-serif;
+  color: #fff;
+}
+#testimonies .testi p {
   text-align: center;
+  padding: 2em 1em;
+}
+@media only screen and (min-width: 992px) {
+  #testimonies .testi p {
+    padding: auto 3em;
+  }
 }
 
-/*    footer    */
-footer {
-  font-size: 0.8rem;
+/* ----------    area with instagram feed    ----------  */
+#instagram-area {
+  background: #6FC3C9;
 }
-footer div {
-  padding: 10px;
+#instagram-area:hover {
+  background: linear-gradient(#6FC3C9, #FF8484);
 }
-footer div div a {
-  color: #004E64;
-  padding-right: 20px;
-}
-footer :nth-child(2) a {
-  color: #004E64;
-}
-footer :nth-child(2) .brand {
-  font: 2em "Sacramento", cursive;
-}
-footer :nth-child(2) span {
-  color: #004E64;
+
+.insta {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  color: #fff;
+}
+.insta h2 {
+  font-size: 2.5em;
+  padding: 1em 0.5em;
+}
+@media only screen and (min-width: 768px) {
+  .insta h2 {
+    font-size: 4em;
+  }
+}
+
+/* instagram feed container */
+.instagram-lite {
+  padding: 0;
+}
+@media only screen and (min-width: 768px) {
+  .instagram-lite {
+    margin: 1em;
+  }
+}
+.instagram-lite a {
+  overflow: hidden !important;
+}
+.instagram-lite a img {
+  width: 50%;
+}
+.instagram-lite a img:hover {
+  transform: scale(1.05);
+  -webkit-transition: all .3s ease-in-out;
+}
+@media only screen and (min-width: 768px) {
+  .instagram-lite a img {
+    width: calc(100% / 4);
+    padding: 3px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .instagram-lite a img {
+    width: calc(100% / 5);
+  }
+}
+
+/* ----------    area with sign up form    ----------  */
+label {
+  margin-bottom: 0 !important;
+}
+
+input, textarea {
+  padding: 20px !important;
+  border-radius: 4px;
+  color: #464a4c;
+  margin: 5px auto;
+}
+@media only screen and (min-width: 768px) {
+  input, textarea {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 80%;
+    padding: 10px 30px !important;
+  }
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #84C0C6;
+  padding: 6em 0.5em;
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  /* form input fields  */
+}
+#form .form-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
-footer :nth-child(2) span i {
-  font-size: 1.2em;
-  padding-right: 5px;
+#form h2 {
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 1.5em;
+  margin-top: 2em;
+}
+#form p {
+  font-size: 1.2rem;
+}
+#form form {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
+}
+@media only screen and (min-width: 768px) {
+  #form form {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #form form {
+    width: 40%;
+  }
+}
+#form form .btn-primary {
+  color: #f4f4f4;
+  background: #1abc9c;
+  padding: 10px 25px;
+  font-size: 0.95em;
+  margin: 20px 0;
+  border: 0;
+  border-bottom: 2px solid #3a9a95;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+#form form .btn-primary:hover {
+  background: #008E87;
+}
+
+.toast {
+  position: fixed;
+  top: 15%;
+  right: 5%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: lightgreen;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+.toast div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/*
+--------------------    footer area    --------------------
+*/
+footer {
+  font-size: 0.8rem;
+  background: #D4C1EC;
+}
+footer .brand {
+  font: 2em "Sacramento", cursive;
+}
+footer a {
+  padding-right: 20px;
+  color: #fff;
+}
+footer a:hover {
+  color: #FF8484;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */
